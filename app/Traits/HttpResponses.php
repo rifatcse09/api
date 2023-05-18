@@ -6,8 +6,12 @@ namespace App\Traits;
 
 trait HtttpResponsea
 {
-    protected function success($data, $message = null, $status = 200)
+    protected function success($data, $message = null, $code = 200)
     {
-        return true;
+        return response()->json([
+            'status' => 'success',
+            'message' => $message,
+            'data' => $data,
+        ], $code);
     }
 }
